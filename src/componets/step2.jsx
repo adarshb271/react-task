@@ -19,7 +19,6 @@ const Step2 = ({ formData, handleChange, errors }) => {
   name="mobile"
   value={formData.mobile}
   onChange={(e) => {
-    // Allow only numbers and limit to 10 digits
     const value = e.target.value;
     if (/^\d*$/.test(value) && value.length <= 10) {
       handleChange(e);

@@ -22,14 +22,12 @@ const App = () => {
 
   const [errors, setErrors] = useState({});
 
-  // Handle input field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: "" }); // Clear the error for the specific field
+    setErrors({ ...errors, [name]: "" }); 
   };
 
-  // Handle file uploads
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const allowedExtensions = ["pdf", "doc", "docx"];
@@ -47,7 +45,6 @@ const App = () => {
     }
   };
 
-  // Validate each step before proceeding
   const validateStep = () => {
     const newErrors = {};
 
@@ -81,21 +78,18 @@ const App = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle "Next" button click
   const handleNext = () => {
     if (validateStep()) {
       setCurrentStep((prevStep) => prevStep + 1);
     }
   };
 
-  // Handle "Previous" button click
   const handlePrev = () => {
     if (currentStep > 1) {
       setCurrentStep((prevStep) => prevStep - 1);
     }
   };
 
-  // Handle "Submit" button click
   const handleSubmit = () => {
     if (validateStep()) {
       alert("Form Submitted Successfully!");
@@ -103,7 +97,6 @@ const App = () => {
     }
   };
 
-  // Render the current step
   const renderStep = () => {
     switch (currentStep) {
       case 1:
@@ -135,9 +128,8 @@ const App = () => {
     }
   };
 
-  // Calculate progress bar width
   const getProgress = () => {
-    return ((currentStep - 1) / 2) * 100; // Adjust progress dynamically
+    return ((currentStep - 1) / 2) * 100; 
   };
 
   return (
